@@ -12,6 +12,8 @@ module.exports = defineConfig({
     experimentalRunAllSpecs: true,
     viewportHeight: 1400,
     viewportWidth: 1600,
+    video: true,
+    videoCompression: false,
   },
 });
 

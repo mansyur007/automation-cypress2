@@ -46,8 +46,12 @@ describe("Tokopedia", { testIsolation: true }, () => {
 
             // count data product
             cy.get('a[data-theme="default"]').then($elements => {
-                cy.log('Number of elements found:', $elements.length);
+                cy.log('Number of elements found: ' + $elements.length);
             });
+
+            // give more time to save video
+            cy.log('Waiting for result');
+            cy.wait(3000);
         });
     });
 

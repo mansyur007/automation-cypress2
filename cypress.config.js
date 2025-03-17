@@ -5,6 +5,9 @@ module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
 
   e2e: {
+    env: {
+      tokopediaUrl: "https://www.tokopedia.com", // Moved to env
+    },
     setupNodeEvents(on, config) {
       require("cypress-mochawesome-reporter/plugin")(on);
     },

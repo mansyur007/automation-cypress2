@@ -1,0 +1,11 @@
+export const TOKOPEDIA_LOCATORS = {
+    CLOSE_POPUP: '.css-11hzwo5 svg',
+    SEARCH_INPUT: 'input[aria-label="Cari di Tokopedia"]',
+    SEARCH_RESULT_INFO: '[data-testid="dSRPSearchInfo"]',
+    PRODUCT_LINKS: 'a[data-theme="default"]',
+    PRODUCT_NAMES: 'span[class*="_0T8-iGxMpV6NEsYEhwkqEg=="]',
+    MIN_PRICE_INPUT: 'input[data-testid="iptSRPMinPriceFilter"]',
+    MAX_PRICE_INPUT: 'input[data-testid="iptSRPMaxPriceFilter"]',
+    PRODUCT_PRICES: 'div[class*="_67d6E1xDKIzw+i2D2L0tjw== t4jWW3NandT5hvCFAiotYg=="]',
+    PRODUCT_CONTAINER: 'div[class*="WABnq4pXOYQihv0hUfQwOg== "]'
+};

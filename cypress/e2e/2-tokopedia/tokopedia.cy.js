@@ -94,7 +94,7 @@ describe("Tokopedia", { testIsolation: true }, () => {
         })
     })
 
-    context.only("POM Cypress test", () => {
+    context("POM Cypress test", () => {
         it("Search product: Gaming laptop 5-10 Million", () => {
             TokopediaPage.visit();
             TokopediaPage.closePopupIfExists();
@@ -133,6 +133,27 @@ describe("Tokopedia", { testIsolation: true }, () => {
             cy.scrollTo('bottom', { duration: 2000 });
 
             TokopediaPage.validatePrices(10000000, 15000000);
+
+            cy.wait(3000);
+        });
+
+        it("Search product: Gaming laptop 15-20 Million with error margin", () => {
+            TokopediaPage.visit();
+            TokopediaPage.closePopupIfExists();
+            TokopediaPage.searchProduct("Laptop Gaming");
+            TokopediaPage.verifySearchResult("Laptop Gaming");
+
+            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom', { duration: 2000 });
+
+            TokopediaPage.countProducts();
+            TokopediaPage.listProductNames();
+
+            TokopediaPage.setPriceFilter(15000000, 20000000);
+            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom', { duration: 2000 });
+
+            TokopediaPage.validatePricesWithMargin(15000000, 20000000);
 
             cy.wait(3000);
         });

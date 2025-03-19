@@ -3,14 +3,6 @@ import TokopediaPage from '../../support/pages/tokopediaPage';
 
 describe("Tokopedia", { testIsolation: true }, () => {
 
-    let userdata
-    beforeEach(() => {
-        cy.fixture('user-data.json').then((user) => {
-            userdata = user
-        })
-
-    })
-
     context("Inline Cypress Test", () => {
         it("Search product: Gaming laptop", () => {
             // visit the page
@@ -93,6 +85,8 @@ describe("Tokopedia", { testIsolation: true }, () => {
             cy.wait(3000)
         })
     })
+
+
 
     context("POM Cypress test", () => {
         it("Search product: Gaming laptop 5-10 Million", () => {

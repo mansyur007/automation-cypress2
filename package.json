@@ -8,7 +8,7 @@
     "e2e:record": "cypress run --record",
     "e2e:record:chrome": "cypress run --record --browser chrome",
     "e2e:login": "cypress run --spec 'cypress/e2e/1-login/'",
-    "e2e:regression": "cypress run --spec 'cypress/e2e/1-login/,cypress/e2e/2-main-page/'",
+    "e2e:regression": "cypress run --spec 'cypress/e2e/1-login/,cypress/e2e/2-tokopedia/'",
     "cy:verify": "cypress verify",
     "cy:info": "cypress info",
     "cy:version": "cypress version",

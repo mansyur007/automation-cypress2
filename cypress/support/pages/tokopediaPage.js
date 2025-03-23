@@ -112,6 +112,23 @@ class TokopediaPage {
         });
     }
 
+    selectMerchantType(type) {
+        cy.get(TOKOPEDIA_LOCATORS.MERCHANT_TYPE_CONTAINER)
+            .should('be.visible')
+            .contains(type)
+            .parent()
+            .find(TOKOPEDIA_LOCATORS.FILTER_CHECKBOX)
+            .click();
+    }
+
+    validateFilterApplied(filter) {
+        cy.get(TOKOPEDIA_LOCATORS.FILTER_TYPE).should('contain.text', filter)
+    }
+
+    validateFooter() {
+        cy.get(TOKOPEDIA_LOCATORS.FOOTER).should('be.visible');
+    }
+
 }
 
 export default new TokopediaPage();

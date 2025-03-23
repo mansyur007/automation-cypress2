@@ -34,7 +34,8 @@ describe("Tokopedia", { testIsolation: true }, () => {
 
             // scroll to element to lazy load
             cy.scrollTo('bottom', { duration: 2000 })
-            cy.scrollTo('bottom', { duration: 2000 })
+            cy.scrollTo('bottom', { duration: 1000 });
+            cy.get('.css-1wlslh7[data-unify="Footer"]').should('be.visible');
 
             // count data product
             cy.get('a[data-theme="default"]').then($elements => {
@@ -57,7 +58,8 @@ describe("Tokopedia", { testIsolation: true }, () => {
 
             // scroll to element to lazy load
             cy.scrollTo('bottom', { duration: 2000 })
-            cy.scrollTo('bottom', { duration: 2000 })
+            cy.scrollTo('bottom', { duration: 1000 })
+            cy.get('.css-1wlslh7[data-unify="Footer"]').should('be.visible');
 
             // Get all displayed prices and validate
             cy.get('div[class*="_67d6E1xDKIzw+i2D2L0tjw== t4jWW3NandT5hvCFAiotYg=="]').each(($el) => {
@@ -96,14 +98,16 @@ describe("Tokopedia", { testIsolation: true }, () => {
             TokopediaPage.verifySearchResult("Laptop Gaming");
 
             cy.scrollTo('bottom', { duration: 2000 });
-            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom', { duration: 1000 });
+            TokopediaPage.validateFooter()
 
             TokopediaPage.countProducts();
             TokopediaPage.listProductNames();
 
             TokopediaPage.setPriceFilter(5000000, 10000000);
             cy.scrollTo('bottom', { duration: 2000 });
-            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom', { duration: 1000 });
+            TokopediaPage.validateFooter()
 
             TokopediaPage.validatePrices(5000000, 10000000);
 
@@ -117,14 +121,16 @@ describe("Tokopedia", { testIsolation: true }, () => {
             TokopediaPage.verifySearchResult("Laptop Gaming");
 
             cy.scrollTo('bottom', { duration: 2000 });
-            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom', { duration: 1000 });
+            TokopediaPage.validateFooter()
 
             TokopediaPage.countProducts();
             TokopediaPage.listProductNames();
 
             TokopediaPage.setPriceFilter(10000000, 15000000);
             cy.scrollTo('bottom', { duration: 2000 });
-            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom');
+            TokopediaPage.validateFooter()
 
             TokopediaPage.validatePrices(10000000, 15000000);
 
@@ -138,20 +144,51 @@ describe("Tokopedia", { testIsolation: true }, () => {
             TokopediaPage.verifySearchResult("Laptop Gaming");
 
             cy.scrollTo('bottom', { duration: 2000 });
-            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom', { duration: 1000 });
+            TokopediaPage.validateFooter()
 
             TokopediaPage.countProducts();
             TokopediaPage.listProductNames();
 
             TokopediaPage.setPriceFilter(15000000, 20000000);
             cy.scrollTo('bottom', { duration: 2000 });
-            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom', { duration: 1000 });
+            TokopediaPage.validateFooter()
 
             TokopediaPage.validatePricesWithMargin(15000000, 20000000);
 
             cy.wait(3000);
         });
     });
+
+    context("End-to-end test", { testIsolation: false }, () => {
+        it('Search for Gaming laptop', () => {
+            cy.clearCookies();
+
+            TokopediaPage.visit();
+            TokopediaPage.closePopupIfExists();
+            TokopediaPage.searchProduct("Laptop Gaming");
+            TokopediaPage.verifySearchResult("Laptop Gaming");
+
+            cy.scrollTo('bottom', { duration: 2000 });
+            cy.scrollTo('bottom', { duration: 1000 });
+            TokopediaPage.validateFooter()
+
+            TokopediaPage.countProducts();
+            TokopediaPage.listProductNames();
+        });
+
+        it('Filter by merchant type', () => {
+            TokopediaPage.selectMerchantType('Power Shop')
+            TokopediaPage.validateFilterApplied('Power Shop')
+        });
+
+        it('Filter by price', () => {
+            TokopediaPage.setPriceFilter(15000000, 20000000);
+            TokopediaPage.validateFilterApplied('Harga Minimum')
+            TokopediaPage.validateFilterApplied('Harga Maksimum')
+        });
+    })
 
 
 

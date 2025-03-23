@@ -7,5 +7,9 @@ export const TOKOPEDIA_LOCATORS = {
     MIN_PRICE_INPUT: 'input[data-testid="iptSRPMinPriceFilter"]',
     MAX_PRICE_INPUT: 'input[data-testid="iptSRPMaxPriceFilter"]',
     PRODUCT_PRICES: 'div[class*="_67d6E1xDKIzw+i2D2L0tjw== t4jWW3NandT5hvCFAiotYg=="]',
-    PRODUCT_CONTAINER: 'div[class*="WABnq4pXOYQihv0hUfQwOg== "]'
+    PRODUCT_CONTAINER: 'div[class*="WABnq4pXOYQihv0hUfQwOg== "]',
+    FILTER_CHECKBOX: 'span[class*="css-4iffx4-unf-checkbox__area e3y1k2n1"]',
+    MERCHANT_TYPE_CONTAINER: 'div[data-testid="dSRPShopFilter"]',
+    FILTER_TYPE: 'div[data-testid="divSRPfiltertype"]',
+    FOOTER: '.css-1wlslh7[data-unify="Footer"]',
 };

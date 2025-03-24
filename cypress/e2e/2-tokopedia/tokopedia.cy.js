@@ -83,8 +83,8 @@ describe("Tokopedia", { testIsolation: true }, () => {
             });
 
             // give more time to save video
-            cy.log('Waiting for result')
-            cy.wait(3000)
+            // cy.log('Waiting for result')
+            // cy.wait(3000)
         })
     })
 
@@ -110,8 +110,6 @@ describe("Tokopedia", { testIsolation: true }, () => {
             TokopediaPage.validateFooter()
 
             TokopediaPage.validatePrices(5000000, 10000000);
-
-            cy.wait(3000);
         });
 
         it("Search product: Gaming laptop 10-15 Million", () => {
@@ -133,8 +131,6 @@ describe("Tokopedia", { testIsolation: true }, () => {
             TokopediaPage.validateFooter()
 
             TokopediaPage.validatePrices(10000000, 15000000);
-
-            cy.wait(3000);
         });
 
         it("Search product: Gaming laptop 15-20 Million with error margin", () => {
@@ -156,8 +152,6 @@ describe("Tokopedia", { testIsolation: true }, () => {
             TokopediaPage.validateFooter()
 
             TokopediaPage.validatePricesWithMargin(15000000, 20000000);
-
-            cy.wait(3000);
         });
     });
 

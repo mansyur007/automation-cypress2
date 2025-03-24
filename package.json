@@ -16,7 +16,8 @@
     "cy:run": "cypress run",
     "cy:run:record": "cypress run --record",
     "cy:open": "cypress open",
-    "cy:e2e": "node run_script.js"
+    "cy:e2e": "node run_script.js",
+    "tokopedia": "cypress run --spec 'cypress/e2e/2-tokopedia/'"
   },
   "author": "Mansyur",
   "license": "",

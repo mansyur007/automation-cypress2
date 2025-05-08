@@ -12,4 +12,5 @@ export const TOKOPEDIA_LOCATORS = {
     MERCHANT_TYPE_CONTAINER: 'div[data-testid="dSRPShopFilter"]',
     FILTER_TYPE: 'div[data-testid="divSRPfiltertype"]',
     FOOTER: '.css-1wlslh7[data-unify="Footer"]',
+    SORT: '',
 };

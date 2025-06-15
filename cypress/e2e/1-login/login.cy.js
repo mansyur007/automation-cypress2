@@ -1,5 +1,5 @@
-import pages from '../../support/pages/login'
-import dashboard from '../../support/pages/dashboard'
+// import pages from '../../support/pages/login'
+// import dashboard from '../../support/pages/dashboard'
 
 describe("Login", { testIsolation: true }, () => {
 
@@ -11,7 +11,7 @@ describe("Login", { testIsolation: true }, () => {
 
     })
 
-    it("test commit", () => {
-
+    it("Test run", () => {
+        cy.log('Test run started');
     })
 })

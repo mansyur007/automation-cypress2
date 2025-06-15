@@ -19,14 +19,27 @@ pipeline {
             }
         }
 
-        // stage('Run k6 Performance Test - from dev') {
-        //     steps {
-        //         script {
-        //             sh '''
-        //             docker run --rm -v $PWD:/scripts -e K6_CLOUD_TOKEN=$K6_TOKEN grafana/k6 run /scripts/k6-test-api.js -o cloud
-        //             '''
-        //         }
-        //     }
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm ci' // or 'npm install' if not using lockfile
+            }
+        }
+
+        stage('Run Cypress Tests') {
+            steps {
+                sh 'npm run login'
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '**/cypress/screenshots/**/*.*, **/cypress/videos/**/*.*', allowEmptyArchive: true
+        }
+        // failure {
+        //     mail to: 'your@email.com',
+        //          subject: "Cypress Tests Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+        //          body: "Check console output: ${env.BUILD_URL}"
         // }
     }
 }

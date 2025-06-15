@@ -1,13 +1,17 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'NodeJS_20' // Change this to match the name set in Jenkins > Global Tool Configuration
+    }
+
     parameters {
         string(name: 'BRANCH', defaultValue: 'dev', description: 'Branch to build')
     }
 
     environment {
         GITHUB_CREDENTIALS = credentials('jenkins-github') // token id from Jenkins
-        K6_TOKEN = credentials('jenkins-k6') // token id from Jenkins
+    // K6_TOKEN = credentials('jenkins-k6') // token id from Jenkins
     } // changes here - trigger commit
 
     stages {
@@ -36,10 +40,10 @@ pipeline {
         always {
             archiveArtifacts artifacts: '**/cypress/screenshots/**/*.*, **/cypress/videos/**/*.*', allowEmptyArchive: true
         }
-        // failure {
-        //     mail to: 'your@email.com',
-        //          subject: "Cypress Tests Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-        //          body: "Check console output: ${env.BUILD_URL}"
-        // }
+    // failure {
+    //     mail to: 'your@email.com',
+    //          subject: "Cypress Tests Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+    //          body: "Check console output: ${env.BUILD_URL}"
+    // }
     }
 }
